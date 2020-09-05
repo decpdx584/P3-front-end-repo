@@ -18,9 +18,12 @@ const Navbar = (props) => {
                         <li className="nav-item">
                             <NavLink className="nav-link"  to="/about">About</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link"  to="/Game">Play Game</NavLink>
+                        </li>
                     </ul>
                     {
-                        props.isAuth 
+                        props.isAuth
                         ? <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/profile">Profile</NavLink>
