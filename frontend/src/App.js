@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Iframe from 'react-iframe';
 import Game from './components/Game'
 import './App.css';
+import Landing from './components/Landing';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -68,7 +69,7 @@ function App() {
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          <Route exact path="/" component={ Welcome } />
+          <Route exact path="/" component={ Landing } />
         </Switch>
       </div>
       <Footer />
