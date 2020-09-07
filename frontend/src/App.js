@@ -8,7 +8,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import About from './components/About';
 import Footer from './components/Footer';
-import Iframe from 'react-iframe';
+// import Iframe from 'react-iframe';
 import Game from './components/Game'
 import './App.css';
 import Landing from './components/Landing';
@@ -70,7 +70,9 @@ function App() {
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          <Route exact path="/" component={ Landing } />
+          {/* The route below automatically renders landing when we load / */}
+          <Route exact path="/" 
+          render={(props) => <Landing {...props} userName={currentUser.name}/>}/> 
         </Switch>
       </div>
       <Footer />
