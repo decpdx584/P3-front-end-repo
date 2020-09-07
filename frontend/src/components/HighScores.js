@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-const HighScores = () => {
+const HighScores = (props) => {
   return(
     <div>
       <h1>Hi Scores</h1>
