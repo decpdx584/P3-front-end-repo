@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Game from './components/Game'
 import './App.css';
 import Landing from './components/Landing';
+import UserFavorites from './components/UserFavorites';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -73,6 +74,8 @@ function App() {
           {/* The route below automatically renders landing when we load / */}
           <Route exact path="/" 
           render={(props) => <Landing {...props} userName={currentUser.name}/>}/> 
+          <Route path="/user/favorites" 
+          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
         </Switch>
       </div>
       <Footer />

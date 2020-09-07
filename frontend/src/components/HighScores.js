@@ -4,7 +4,7 @@ const HighScores = () => {
   return(
     <div>
       <h1>Hi Scores</h1>
-      <h2>Most favorited by users</h2>
+      <h4>Most favorited by users</h4>
     </div>
   )
 }

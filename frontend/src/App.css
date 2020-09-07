@@ -16,3 +16,7 @@ body {
   background-color: black;
   color: pink;
 }
+#cabinet-far {
+  width: 400px;
+  height: auto;
+}
