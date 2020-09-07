@@ -73,7 +73,7 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           {/* The route below automatically renders landing when we load / */}
           <Route exact path="/" 
-          render={(props) => <Landing {...props} userName={currentUser.name}/>}/> 
+          render={(props) => <Landing {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
         </Switch>
