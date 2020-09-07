@@ -6,7 +6,6 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import Welcome from './components/Welcome';
 import About from './components/About';
 import Footer from './components/Footer';
 import Iframe from 'react-iframe';
@@ -26,6 +25,8 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
+  let [gamesDisplayed, setGamesDisplayed] = useState([])
+
 
   useEffect(() => {
     let token;
