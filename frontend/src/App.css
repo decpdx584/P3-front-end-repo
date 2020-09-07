@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 html {
   position: relative;
   min-height: 100%;
 }
 body {
+  background-color: #7700a6;
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .footer {
@@ -15,4 +19,20 @@ body {
 .game {
   background-color: black;
   color: pink;
+}
+.pixel-text {
+  font-family: 'Press Start 2P', cursive;
+  color: #defe47;
+}
+.sub-title {
+  font-family: 'Russo One', sans-serif;
+  color: #e9a7fa;
+}
+
+#cabinet-far {
+  width: 400px;
+  height: auto;
+}
+#landing {
+  text-align: center;
 }
