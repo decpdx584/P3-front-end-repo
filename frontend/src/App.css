@@ -6,6 +6,7 @@ html {
   min-height: 100%;
 }
 body {
+  background-color: #7700a6;
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .footer {
@@ -21,9 +22,11 @@ body {
 }
 .pixel-text {
   font-family: 'Press Start 2P', cursive;
+  color: #defe47;
 }
 .sub-title {
   font-family: 'Russo One', sans-serif;
+  color: #e9a7fa;
 }
 
 #cabinet-far {
