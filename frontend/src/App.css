@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html {
   position: relative;
@@ -8,6 +9,7 @@ html {
 body {
   background-color: #7700a6;
   margin-bottom: 60px; /* Margin bottom by footer height */
+  font-family: 'Roboto', sans-serif;
 }
 .footer {
   position: absolute;
@@ -27,6 +29,9 @@ body {
 .sub-title {
   font-family: 'Russo One', sans-serif;
   color: #e9a7fa;
+}
+.yellow-text {
+  color: #defe47;
 }
 
 #cabinet-far {
