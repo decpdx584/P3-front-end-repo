@@ -5,10 +5,9 @@ const Profile = (props) => {
     console.log(props);
     const userData = props.user ? 
     (<div>
-        <h1>Profile</h1>
+        <h1 className="pixel-text">{props.user.name}'s Profile</h1>
         <p><strong>Name:</strong> {props.user.name}</p> 
         <p><strong>Email:</strong> {props.user.email}</p> 
-        <p><strong>ID:</strong> {props.user.id}</p> 
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
