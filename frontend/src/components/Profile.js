@@ -8,18 +8,16 @@ const Profile = (props) => {
     const userData = props.user ? 
     (<div>
         <h1 className="pixel-text">{props.user.name}'s Profile</h1><br />
-        <h2 className="sub-title">Account Info</h2><br />
-        <div>
-        <h5 className="sub-title">Username:</h5> 
-        <p className="yellow-text">{props.user.name}</p> 
-        <h5 className="sub-title">Email:</h5> 
-        <p className="yellow-text">{props.user.email}</p> 
-        <h5 className="sub-title">Favorites</h5> 
-        <p className="yellow-text">favorites go here or link?</p> 
-        <h5 className="sub-title">Uploaded Games</h5> 
-        <p className="yellow-text">uploaded games go here or link?</p> 
-
-
+        <div id="account-info">
+            <h2 className="sub-title">Account Info</h2><br />
+            <h5 className="sub-title">Username:</h5> 
+            <p className="yellow-text">{props.user.name}</p> 
+            <h5 className="sub-title">Email:</h5> 
+            <p className="yellow-text">{props.user.email}</p> 
+            <h5 className="sub-title">Favorites</h5> 
+            <p className="yellow-text">favorites go here or link?</p> 
+            <h5 className="sub-title">Uploaded Games</h5> 
+            <p className="yellow-text">uploaded games go here or link?</p> 
         </div>
 
     </div>) : <h4>Loading...</h4>
