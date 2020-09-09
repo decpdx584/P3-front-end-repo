@@ -5,6 +5,7 @@ const CabinetScreen = (props) => {
     <div>
       {/* here we will display the game and the game list */}
       <h1>Cabinet Screen</h1>
+      <p>{props.stuff}</p>
     </div>
   )
 }
