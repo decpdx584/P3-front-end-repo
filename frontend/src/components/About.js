@@ -1,23 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
-        <div>
+        <div className="about">
             <h1>About</h1>
             <p>This is all about us.</p>
             <p>
-                            Now, this is a story all about how
-                My life got flipped-turned upside down
-                And I'd like to take a minute
-                Just sit right there
-                I'll tell you how I became the prince of a town called Bel AirIn west Philadelphia born and raised
-                On the playground was where I spent most of my days
-                Chillin' out maxin' relaxin' all cool
-                And all shootin some b-ball outside of the school
-                When a couple of guys who were up to no good
-                Started making trouble in my neighborhood
-                I got in one little fight and my mom got scared
-                She said 'You're movin' with your auntie and uncle in Bel Air'
+                  <strong>Project One...</strong> seems like forever ago, right?
+                   How many of us have revisited our games? Replayed our cohort mates games?
+                   If we haven't, maybe it's because we would have to go to github, find the creator's account,
+                   find the repo, find the github pages link.... Well, not anymore. One spot. For all our games.
+                   Enter: <strong>GArcade</strong> . Here you can submit your games from Project One (or any others you've created!) and
+                   play your classmates games as well! Maybe you're looking for something new? Well, ALL cohorts will
+                   have the ability to create a User account and upload their games as well! The idea behind This
+                   was to create a place where we can all come together, support our previous works and continue to develop, submit and grow!
+                   Questions? Comments? Wanna see more form us? Feel free to reach out to any of the devs via LinkedIn or check out our work on Github!<br />
+                   Martin Briceno: <a className="devs" target="_blank" href="https://github.com/blangwell">Github </a><a className="devs" target="_blank" href="https://www.linkedin.com/in/blangwell/">LinkedIn</a><br />
+                   David Cabassa: <a className="devs" target="_blank" href="https://github.com/blangwell">Github </a><a className="devs" target="_blank" href="https://www.linkedin.com/in/blangwell/">LinkedIn</a><br />
+                   Barent Langwell: <a className="devs" target="_blank" href="https://github.com/blangwell">Github </a><a className="devs" target="_blank" href="https://www.linkedin.com/in/blangwell/">LinkedIn</a><br />
+                   Lizz West: <a className="devs" target="_blank" href="https://github.com/lizzwest">Github </a><a className="devs" target="_blank" href="https://www.linkedin.com/in/lizzwest/">LinkedIn</a>
             </p>
         </div>
     );

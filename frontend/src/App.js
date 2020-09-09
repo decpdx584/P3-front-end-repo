@@ -83,9 +83,11 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-          <Route path="*" component={Error} />
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} />} />
+          {/* <Route path="/addgame"
+          render={(props) => <GameForm {...props} />} /> */}
+            {/* <Route path="*" component={Error} /> */}
         </Switch>
       </div>
       <Footer />
