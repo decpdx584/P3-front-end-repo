@@ -80,6 +80,7 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+          
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} />} />
         </Switch>
