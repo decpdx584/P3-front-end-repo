@@ -1,6 +1,8 @@
 import React from 'react';
 import Iframe from 'react-iframe'
 
+// this could become a parent to GameIndex and Favorites
+// we could pass state down from here
 const Game = () => {
     return (
         <div className="arcade">
