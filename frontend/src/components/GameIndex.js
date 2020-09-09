@@ -17,22 +17,21 @@ const GameIndex = (props) => {
   // }
   
   let mapThemGames = () => {
-    gamesDisplayed.map((g, idx) => {
-      console.log('THiS A G DOG', g)
-      return <li key={idx}>{g.gameUrl}</li>
+    return gamesDisplayed.map((g, idx) => {
+      console.log('THiS A G', g)
+      return <li key={idx}>{g.name}</li>
     })
   } 
 
   let decideGames = 
     gamesDisplayed.length > 0 ? (
       <div>
-        <h1>Tha Games</h1>
+        <h1>Them Games</h1>
         <ul>{mapThemGames()}</ul>
       </div>
     ) : (
       <h1>Nothin in state rn 😓</h1>
     )
-
   
   useEffect(() => {
     axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
@@ -41,7 +40,6 @@ const GameIndex = (props) => {
       setGamesDisplayed(response.data);
     })
     .catch(err => console.log('error getting server data \n', err))
-    
   }, [])
 
 
