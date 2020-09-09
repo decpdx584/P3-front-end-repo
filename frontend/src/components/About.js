@@ -6,10 +6,18 @@ const About = () => {
             <h1>About</h1>
             <p>This is all about us.</p>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Tempore dolorum excepturi, pariatur dolore fuga perferendis 
-                mollitia deserunt a voluptas assumenda! Consequatur beatae qui 
-                dolorem tempora possimus accusantium, fugit eius quidem?
+                            Now, this is a story all about how
+                My life got flipped-turned upside down
+                And I'd like to take a minute
+                Just sit right there
+                I'll tell you how I became the prince of a town called Bel AirIn west Philadelphia born and raised
+                On the playground was where I spent most of my days
+                Chillin' out maxin' relaxin' all cool
+                And all shootin some b-ball outside of the school
+                When a couple of guys who were up to no good
+                Started making trouble in my neighborhood
+                I got in one little fight and my mom got scared
+                She said 'You're movin' with your auntie and uncle in Bel Air'
             </p>
         </div>
     );
