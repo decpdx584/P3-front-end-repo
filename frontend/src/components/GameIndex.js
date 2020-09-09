@@ -19,15 +19,21 @@ const GameIndex = (props) => {
   let mapThemGames = () => {
     return gamesDisplayed.map((g, idx) => {
       console.log('THiS A G', g)
-      return <li key={idx}>{g.name}</li>
+      return (
+        <div key={idx}>
+        <h3>{g.name ? g.name : g.title}</h3>
+        <p>{g.gameUrl}</p>
+        <p>{g.description != 'none' ? g.description : 'no description uploaded'}</p>
+        </div>
+      )
     })
   } 
 
   let decideGames = 
     gamesDisplayed.length > 0 ? (
       <div>
-        <h1>Them Games</h1>
-        <ul>{mapThemGames()}</ul>
+        <h1 className="pixel-text">Them Games</h1>
+        {mapThemGames()}
       </div>
     ) : (
       <h1>Nothin in state rn 😓</h1>
