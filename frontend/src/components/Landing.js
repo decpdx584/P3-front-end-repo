@@ -7,8 +7,7 @@ const Landing = (props) => {
       <h4 className="sub-title">A Place for Project One</h4><br />
       <img id="cabinet-far" src="https://i.imgur.com/h3MUYJt.png"/>
       <br />
-      <a href="/login" >Login</a>
-      <a href="/signup">Signup</a>
+   
     </div>
   )
 };
