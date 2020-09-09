@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import About from './components/About';
 import Footer from './components/Footer';
+import Error from "./components/Error"
 // import Iframe from 'react-iframe';
 import Game from './components/Game'
 import GameForm from "./components/GameForm"
@@ -82,7 +83,7 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-          
+          <Route path="*" component={Error} />
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} />} />
         </Switch>
