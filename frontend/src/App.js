@@ -13,6 +13,7 @@ import Game from './components/Game'
 import './App.css';
 import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
+import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -79,6 +80,8 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+          <Route path="/games/index"
+          render={(props) => <GameIndex {...props} />} />
         </Switch>
       </div>
       <Footer />
