@@ -10,9 +10,11 @@ import About from './components/About';
 import Footer from './components/Footer';
 // import Iframe from 'react-iframe';
 import Game from './components/Game'
+import GameForm from "./components/GameForm"
 import './App.css';
 import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
+import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -72,6 +74,7 @@ function App() {
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           {/* The route below automatically renders landing when we load / */}
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 
@@ -79,6 +82,9 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+          
+          <Route path="/games/index"
+          render={(props) => <GameIndex {...props} />} />
         </Switch>
       </div>
       <Footer />

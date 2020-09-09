@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CabinetTop = () => {
+const CabinetTop = (props) => {
   return (
     <div>
-      <h1>Cabinet Top</h1>
+      <h1>Game Title - cabinet top</h1>
     </div>
   )
 }

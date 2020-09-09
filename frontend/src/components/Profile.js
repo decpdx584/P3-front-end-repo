@@ -1,80 +1,31 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import GameForm from "./GameForm"
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 
 // onSubmit={handleSubmit}
 const Profile = (props) => {
-    let [title, setTitle] = useState('');
-    let [gameUrl, setGameUrl] = useState('');
-    let [cohort, setCohort] = useState('');
-    let [description, setDescription] = useState('');
-    let [screenshot, setScreenShot] = useState('');
-    let [redirect, setRedirect] = useState(false);
-    const handleTitle = (e) => {
-        setTitle(e.target.value);
-    }
-    const handleUrl = (e) => {
-        setGameUrl(e.target.value);
-    }
-    const handleCohort = (e) => {
-        setCohort(e.target.value);
-    }
-    const handleDescription = (e) => {
-        setDescription(e.target.value);
-    }
-    const handleScreenShot = (e) => {
-        setScreenShot(e.target.value);
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newGame = { gameUrl, title, description, cohort, screenshot }
-        axios.post(`${REACT_APP_SERVER_URL}/api/games/addgame`, newGame)
-            .then(response => {
-                console.log(response);
-                setRedirect(true);
-                setTitle('');
-                setGameUrl('');
-                setDescription('');
-                setCohort('');
-                setScreenShot('');
-            })
-            .catch(error => console.log(error));
-        }
-
-
     console.log(props);
-    const userData = props.user ?
+    // This will live within CabinetTop Component
+    // will need to pass this const as a prop
+    const userData = props.user ? 
     (<div>
-        <h1 className="pixel-text">{props.user.name}'s Profile</h1>
-        <p><strong>Name:</strong> {props.user.name}</p>
-        <p><strong>Email:</strong> {props.user.email}</p>
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="title">Whats the name of your game</label>
-                <input type="title" name="title" value={title} onChange={handleTitle} className="form-control" required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="gameUrl">Submit your game URL Below</label>
-                <input type="gameUrl" name="gameUrl" value={gameUrl} onChange={handleUrl} className="form-control" required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="cohort">Whats your Cohort(Optional)</label>
-                <input type="cohort" name="cohort" value={cohort} onChange={handleCohort} className="form-control" />
-            </div>
-            <div className="form-group">
-                <label htmlFor="description">Tell us something about your game (optional)</label>
-                <input type="description" name="description" value={description} onChange={handleDescription} className="form-control" />
-            </div>
-            <div className="form-group">
-                <label htmlFor="screenshot">Link a Screen Shot of your game (optional)</label>
-                <input type="screenshot" name="screenshot" value={screenshot} onChange={handleScreenShot} className="form-control" />
-            </div>
-            <button type="submit" className="btn btn-primary float-right">Submit</button>
-        </form>
+        <h1 className="pixel-text">{props.user.name}'s Profile</h1><br />
+        <div id="account-info">
+            <h2 className="sub-title">Account Info</h2><br />
+            <h5 className="sub-title">Username:</h5> 
+            <p className="yellow-text">{props.user.name}</p> 
+            <h5 className="sub-title">Email:</h5> 
+            <p className="yellow-text">{props.user.email}</p> 
+            <h5 className="sub-title">Favorites</h5> 
+            <p className="yellow-text">favorites go here or link?</p> 
+            <h5 className="sub-title">Uploaded Games</h5> 
+            <p className="yellow-text">uploaded games go here or link?</p> 
+        </div>
+
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
@@ -87,6 +38,7 @@ const Profile = (props) => {
 
     return (
         <div>
+            {/* THIS WILL LIVE IN CABINET TOP */}
             { props.user ? userData : errorDiv() }
 
         </div>
