@@ -31,6 +31,7 @@ function App() {
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
   let [gamesDisplayed, setGamesDisplayed] = useState([])
+  let [currentGame, setCurrentGame] = useState({})
 
 
   useEffect(() => {
@@ -59,6 +60,16 @@ function App() {
     }
   }
 
+  //  const handlePlayGame = (id) => {
+  //   // send id to url parameter space
+  //   // use that id to render the specific game we want to pla
+    
+  //   setCurrentGame(id)
+  //   console.log(currentGame)
+  //   // <props.privateRoute path="/games/active" component={Game} />
+  //   return <Redirect to='game' />
+  // }
+
   console.log('Current User', currentUser);
   console.log('Authenicated', isAuthenticated);
 
@@ -84,10 +95,17 @@ function App() {
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
           <Route path="/games/index"
+<<<<<<< HEAD
           render={(props) => <GameIndex {...props} />} />
           {/* <Route path="/addgame"
           render={(props) => <GameForm {...props} />} /> */}
             {/* <Route path="*" component={Error} /> */}
+=======
+          render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+
+          <Route path={`/games/${currentGame._id}`}
+          render={(props) => <Arcade {...props} />} />
+>>>>>>> 7049a62837b8ae5bbc8fc69bb6ee018f37760098
         </Switch>
       </div>
       <Footer />
