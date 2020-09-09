@@ -8,17 +8,6 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 // onSubmit={handleSubmit}
 const Profile = (props) => {
-<<<<<<< HEAD
-
-    const userData = props.user ?
-    (<div>
-        <h1 className="pixel-text">{props.user.name}'s Profile</h1>
-        <p><strong>Name:</strong> {props.user.name}</p>
-        <p><strong>Email:</strong> {props.user.email}</p>
-        {/* <GameForm {...props}/> */}
-        {/* //button/ link to addgame */}
-        <Link to="/addgame">Submit a Game</Link>
-=======
     console.log(props);
     // This will live within CabinetTop Component
     // will need to pass this const as a prop
@@ -37,7 +26,6 @@ const Profile = (props) => {
             <p className="yellow-text">uploaded games go here or link?</p> 
         </div>
 
->>>>>>> feature
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
