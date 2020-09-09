@@ -3,7 +3,7 @@ import Iframe from 'react-iframe'
 
 // this could become a parent to GameIndex and Favorites
 // we could pass state down from here
-const Game = () => {
+const Game = (props) => {
     return (
         <div className="arcade">
         <h2>Revenge of the Flower</h2>
