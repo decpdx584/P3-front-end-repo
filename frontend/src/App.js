@@ -93,10 +93,10 @@ function App() {
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
           
           <Route path="/games/index"
-          render={(props) => <GameIndex {...props} privateRoute={PrivateRoute} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+          render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
-          {/* <Route path="/:id"
-          render={(props) => <ShowGame {...props} />} /> */}
+          <Route path={`/games/${currentGame._id}`}
+          render={(props) => <Arcade {...props} />} />
         </Switch>
       </div>
       <Footer />
