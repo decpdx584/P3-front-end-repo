@@ -30,8 +30,8 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
-  let [gamesDisplayed, setGamesDisplayed] = useState([])
-  let [currentGame, setCurrentGame] = useState({})
+  let [gamesDisplayed, setGamesDisplayed] = useState([]);
+  let [currentGame, setCurrentGame] = useState({});
 
 
   useEffect(() => {
@@ -90,16 +90,19 @@ function App() {
           {/* The route below automatically renders landing when we load / */}
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 
+
           <Route path="/arcade" 
-          render={(props) => <Arcade {...props}/>}/> 
+          render={(props) => <Arcade {...props} 
+          currentGame={currentGame} setCurrentGame={setCurrentGame}/>}/> 
+
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-          <Route path="*" component={Error} />
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+          {/* <Route path="*" component={Error} /> */}
 
-          <Route path={`/games/${currentGame._id}`}
-          render={(props) => <Arcade {...props} />} />
+          <Route path="/games/:id"
+          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
         </Switch>
       </div>
       <Footer />
