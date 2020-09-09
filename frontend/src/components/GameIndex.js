@@ -21,7 +21,7 @@ const GameIndex = (props) => {
       console.log('THiS A G', g)
       return (
         <div key={idx}>
-        <h3>{g.name ? g.name : g.title}</h3>
+        <h3 className="sub-title">{g.name ? g.name : g.title}</h3>
         <p>{g.gameUrl}</p>
         <p>{g.description != 'none' ? g.description : 'no description uploaded'}</p>
         </div>
