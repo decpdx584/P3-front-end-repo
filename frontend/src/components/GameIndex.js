@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import CabinetScreen from './CabinetScreen';
+import Game from './Game'
+import {Redirect, withRouter} from 'react-router-dom'
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
+
 const GameIndex = (props) => {
-  let [gamesDisplayed, setGamesDisplayed] = useState([])
+  let [gamesDisplayed, setGamesDisplayed] = useState([]);
+  // let [currentGame, setCurrentGame] = useState('')
 
 
   // const getGames = () => {
@@ -15,12 +19,23 @@ const GameIndex = (props) => {
   //   })
   //   .catch(err => console.log('error getting server data \n', err))
   // }
+
+  const handlePlayGame = (id) => {
+    // send id to url parameter space
+    // use that id to render the specific game we want to pla
+    
+    props.setCurrentGame(id)
+    console.log(props.currentGame)
+    // <props.privateRoute path="/games/active" component={Game} />
+    return <Redirect to='game' />
+  }
   
   let mapThemGames = () => {
     return gamesDisplayed.map((g, idx) => {
       console.log('THiS A G', g)
       return (
-        <div key={idx}>
+        <div key={idx}
+        onClick={() => handlePlayGame(g)}>
         <h3 className="sub-title">{g.name ? g.name : g.title}</h3>
         <p>{g.gameUrl}</p>
         <p>{g.description != 'none' ? g.description : 'no description uploaded'}</p>
@@ -36,7 +51,7 @@ const GameIndex = (props) => {
         {mapThemGames()}
       </div>
     ) : (
-      <h1>Nothin in state rn 😓</h1>
+      <h3 className="pixel-text">Loading the Arcade 💨</h3>
     )
   
   useEffect(() => {
