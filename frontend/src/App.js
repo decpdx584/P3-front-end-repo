@@ -28,7 +28,7 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
-  // let [gamesDisplayed, setGamesDisplayed] = useState([])
+  let [gamesDisplayed, setGamesDisplayed] = useState([])
   let [currentGame, setCurrentGame] = useState({})
 
 
