@@ -109,3 +109,10 @@ form{
 
   /* border: 2px solid blue; */
 }
+
+.cabinet{
+  text-align: center;
+}
+#game-title{
+  padding: 15px 0 30px;
+}

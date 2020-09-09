@@ -3,7 +3,10 @@ import CabinetTop from './CabinetTop';
 import CabinetScreen from './CabinetScreen';
 import CabinetBottom from './CabinetBottom';
 import axios from 'axios';
+import Iframe from 'react-iframe'
+
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
 
 const Arcade = (props) => {
 
@@ -20,16 +23,29 @@ const Arcade = (props) => {
   
   useEffect(() => {
     arcadeGame()
-
   }, [])
+
+  let handleLoading = 
+  props.currentGame ? (
+    <div className="cabinet">
+      <h1 className="pixel-text" id="game-title">{props.currentGame.name}</h1>
+      <div className="arcade">
+        <Iframe url={props.currentGame.gameUrl}
+            // id="myId"
+            className="myClassname"
+            display="initial"
+            position="relative"
+            overflow="hidden" />
+
+    </div>
+    </div>
+  ) : (
+    <h3 className="pixel-text">Loading Game</h3>
+  )
 
   return(
     <div>
-      <h1>{props.currentGame ? props.currentGame.name : 'Loading'}</h1>
-      <h1></h1>
-      <CabinetTop />
-      <CabinetScreen />
-      <CabinetBottom />
+      {handleLoading}
     </div>
   )
 }
