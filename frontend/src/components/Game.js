@@ -9,7 +9,7 @@ const Game = () => {
             id="myId"
             className="myClassname"
             display="initial"
-            //position="relative"
+            position="relative"
             overflow="hidden" />
 
     </div>
