@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import GameForm from "./GameForm"
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
+
+
+// onSubmit={handleSubmit}
 const Profile = (props) => {
-    console.log(props);
-    const userData = props.user ? 
+
+    const userData = props.user ?
     (<div>
         <h1 className="pixel-text">{props.user.name}'s Profile</h1>
-        <p><strong>Name:</strong> {props.user.name}</p> 
-        <p><strong>Email:</strong> {props.user.email}</p> 
+        <p><strong>Name:</strong> {props.user.name}</p>
+        <p><strong>Email:</strong> {props.user.email}</p>
+        {/* <GameForm {...props}/> */}
+        {/* //button/ link to addgame */}
+        <Link to="/addgame">Submit a Game</Link>
     </div>) : <h4>Loading...</h4>
 
     const errorDiv = () => {
@@ -17,10 +26,11 @@ const Profile = (props) => {
             </div>
         );
     };
-    
+
     return (
         <div>
             { props.user ? userData : errorDiv() }
+
         </div>
     );
 
