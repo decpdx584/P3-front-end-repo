@@ -31,13 +31,12 @@ const Arcade = (props) => {
       <h1 className="pixel-text" id="game-title">{props.currentGame.name}</h1>
       <div className="arcade">
         <Iframe url={props.currentGame.gameUrl}
-            // id="myId"
             className="myClassname"
             display="initial"
             position="relative"
             overflow="hidden" />
-
-    </div>
+      </div>
+      <h4>{props.currentGame.description != 'none' ? props.currentGame.description : ''}</h4>
     </div>
   ) : (
     <h3 className="pixel-text">Loading Game</h3>
