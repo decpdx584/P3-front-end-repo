@@ -8,7 +8,6 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 // onSubmit={handleSubmit}
 const Profile = (props) => {
-    console.log(props);
     // This will live within CabinetTop Component
     // will need to pass this const as a prop
     const userData = props.user ?
