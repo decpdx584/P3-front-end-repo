@@ -89,7 +89,7 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
-          {/* The route below automatically renders landing when we load / */
+          {/* The route below automatically renders landing when we load / */}
 
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 

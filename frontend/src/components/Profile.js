@@ -16,7 +16,6 @@ const Profile = (props) => {
         <h1 className="pixel-text">{props.user.name}'s Profile</h1><br />
         <div id="account-info">
             <h2 className="sub-title">Account Info</h2><br />
-<<<<<<< HEAD
             <h5 className="sub-title">Username:</h5> 
             <p className="yellow-text">{props.user.name}</p> 
             <h5 className="sub-title">Email:</h5> 
@@ -26,18 +25,6 @@ const Profile = (props) => {
             <h5 className="sub-title">Uploaded Games</h5> 
             {/* <p className="yellow-text">uploaded games go here or link?</p>  */}
             <Link className="links" to="/addgame">Upload a Game </Link>
-=======
-            <h5 className="sub-title">Username:</h5>
-            <p className="yellow-text">{props.user.name}</p>
-            <h5 className="sub-title">Email:</h5>
-            <p className="yellow-text">{props.user.email}</p>
-            <h5 className="sub-title">Favorites</h5>
-            <p className="yellow-text">favorites go here or link?</p>
-            <Link classNmae="Links" to="/editprofile"> <h5 className="sub-title">Update your Profile</h5></Link>
-            <p className="yellow-text">update Profile goes Here?</p>
-            <h5 className="sub-title">Uploaded Games</h5>
-            <p className="yellow-text">uploaded games go here or link?</p>
->>>>>>> b77126f8c1d64a9f8fa8ac482fd3fe453e4cdf90
         </div>
       
 
