@@ -23,11 +23,10 @@ const Profile = (props) => {
             <h5 className="sub-title">Favorites</h5> 
             <p className="yellow-text">favorites go here or link?</p> 
             <h5 className="sub-title">Uploaded Games</h5> 
-            <p className="yellow-text">uploaded games go here or link?</p> 
+            {/* <p className="yellow-text">uploaded games go here or link?</p>  */}
+            <Link className="links" to="/addgame">Upload a Game </Link>
         </div>
-        <div className="home">
-          <Link className="links" to="/addgame">Upload a Game </Link>
-      </div>
+      
 
     </div>) : <h4>Loading...</h4>
 
