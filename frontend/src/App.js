@@ -17,6 +17,7 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+import EditProfile from './components/EditProfile'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -87,31 +88,18 @@ function App() {
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
+          <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
           {/* The route below automatically renders landing when we load / */}
-// <<<<<<< master
-          <Route exact path="/" 
-          render={(props) => <Landing {...props}/>}/> 
-          <Route path="/arcade" 
-          render={(props) => <Arcade {...props}/>}/> 
-          <Route path="/user/favorites" 
-          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-// =======
-//           <Route exact path="/"
-//           render={(props) => <Landing {...props}/>}/>
-//           <Route path="/arcade"
-//           render={(props) => <Arcade {...props}/>}/>
-//           <Route path="/user/favorites"
-//           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
 
-// >>>>>>> master
+          <Route exact path="/"
+          render={(props) => <Landing {...props}/>}/>
+          <Route path="/arcade"
+          render={(props) => <Arcade {...props}/>}/>
+          <Route path="/user/favorites"
+          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
+
           <Route path="/games/index"
-// <<<<<<< HEAD
           render={(props) => <GameIndex {...props} />} />
-          {/* <Route path="/addgame"
-          render={(props) => <GameForm {...props} />} /> */}
-            {/* <Route path="*" component={Error} /> */}
-// =======
-//           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
           <Route path={`/games/${currentGame._id}`}
           render={(props) => <Arcade {...props} />} />
