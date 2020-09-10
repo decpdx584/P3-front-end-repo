@@ -88,19 +88,36 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           {/* The route below automatically renders landing when we load / */}
-          <Route exact path="/"
-          render={(props) => <Landing {...props}/>}/>
-          <Route path="/arcade"
-          render={(props) => <Arcade {...props}/>}/>
-          <Route path="/user/favorites"
-          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
+// <<<<<<< master
+          <Route exact path="/" 
+          render={(props) => <Landing {...props}/>}/> 
+          <Route path="/arcade" 
+          render={(props) => <Arcade {...props}/>}/> 
+          <Route path="/user/favorites" 
+          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+// =======
+//           <Route exact path="/"
+//           render={(props) => <Landing {...props}/>}/>
+//           <Route path="/arcade"
+//           render={(props) => <Arcade {...props}/>}/>
+//           <Route path="/user/favorites"
+//           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
 
+// >>>>>>> master
           <Route path="/games/index"
-          render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+// <<<<<<< HEAD
+          render={(props) => <GameIndex {...props} />} />
+          {/* <Route path="/addgame"
+          render={(props) => <GameForm {...props} />} /> */}
+            {/* <Route path="*" component={Error} /> */}
+// =======
+//           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
           <Route path={`/games/${currentGame._id}`}
           render={(props) => <Arcade {...props} />} />
+
           <Route path="*" component={Error} />
+
         </Switch>
       </div>
       <Footer />

@@ -44,32 +44,30 @@ const Signup = () => {
     if (redirect) return <Redirect to="/login" />
 
     return (
-        <div className="row mt-4">
-            <div className="col-md-7 offset-md-3">
-                <div className="card card-body">
-                    <h2 className="py-2">Signup</h2>
+        
+                <div className="signupForm">
+                    <h2 className="formLabel">Signup</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="name">Name</label>
-                            <input type="text" name="name" value={name} onChange={handleName} className="form-control"/>
+                            <label htmlFor="name">Name</label><br/>
+                            <input type="text" name="name" value={name} onChange={handleName}  className="input"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" name="email" value={email} onChange={handleEmail} className="form-control"/>
+                            <label htmlFor="email">Email</label><br/>
+                            <input type="email" name="email" value={email} onChange={handleEmail}  className="input"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input type="password" name="password" value={password} onChange={handlePassword} className="form-control"/>
+                            <label htmlFor="password">Password</label><br/>
+                            <input type="password" name="password" value={password} onChange={handlePassword}  className="input"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} className="form-control"/>
+                            <label htmlFor="confirmPassword">Confirm Password</label><br/>
+                            <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword}  className="input"/>
                         </div>
-                        <button type="submit" className="btn btn-primary float-right">Submit</button>
+                        <button type="submit" className="button">Submit</button>
                     </form>
                 </div>
-            </div>
-        </div>
+           
     );
 
 }

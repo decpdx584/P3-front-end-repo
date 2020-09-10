@@ -25,6 +25,9 @@ const Profile = (props) => {
             <h5 className="sub-title">Uploaded Games</h5> 
             <p className="yellow-text">uploaded games go here or link?</p> 
         </div>
+        <div className="home">
+          <Link className="links" to="/addgame">Upload a Game </Link>
+      </div>
 
     </div>) : <h4>Loading...</h4>
 
