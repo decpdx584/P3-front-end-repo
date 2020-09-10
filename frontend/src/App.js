@@ -17,7 +17,13 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+
+import axios from 'axios';
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+ 
+
 import EditProfile from './components/EditProfile'
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -31,8 +37,9 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
-  let [gamesDisplayed, setGamesDisplayed] = useState([]);
+  // let [gamesDisplayed, setGamesDisplayed] = useState([]);
   let [currentGame, setCurrentGame] = useState({});
+  let [currentUserFaves, setCurrentUserFaves] = useState([]);
 
 
   useEffect(() => {
@@ -42,10 +49,18 @@ function App() {
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
       setAuthToken(localStorage.jwtToken);
+      console.log('HERE IS THE TOKEN', token)
       setCurrentUser(token);
       setIsAuthenticated(true);
+      axios.get(`${REACT_APP_SERVER_URL}/api/users/profile/${currentUser.id}`)
+      .then(response => {
+        setCurrentUserFaves(response.data.favedGames)
+        // console.log('LINE 54 : ', currentUserFaves)
+        console.log('FRONT END USE EFFECT RESPONSE ', response)
+     })
+     .catch(err => console.log('FRONT END DOT CATCH : ', err))
     }
-  }, []);
+  }, [currentUser ? currentUser.id : '']);
 
   const nowCurrentUser = (userData) => {
     console.log('nowCurrentUser is working...');
@@ -61,16 +76,6 @@ function App() {
     }
   }
 
-  //  const handlePlayGame = (id) => {
-  //   // send id to url parameter space
-  //   // use that id to render the specific game we want to pla
-
-  //   setCurrentGame(id)
-  //   console.log(currentGame)
-  //   // <props.privateRoute path="/games/active" component={Game} />
-  //   return <Redirect to='game' />
-  // }
-
   console.log('Current User', currentUser);
   console.log('Authenicated', isAuthenticated);
 
@@ -82,11 +87,13 @@ function App() {
           <Route path="/signup" component={ Signup} />
           <Route
             path="/login"
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
+            render={ (props) => <Login {...props} 
+            nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} 
+            user={currentUser} currentUserFaves={currentUserFaves} setCurrentUserFaves={setCurrentUserFaves}/>}
           />
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
-          <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          <PrivateRoute path="/profile" component={ Profile } user={currentUser} currentUserFaves={currentUserFaves}/>
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
           {/* The route below automatically renders landing when we load / */}
@@ -106,7 +113,13 @@ function App() {
           {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
+
+          render={(props) => <Arcade {...props} currentGame={currentGame} 
+          setCurrentGame={setCurrentGame} currentUser={currentUser} 
+          setCurrentUser={setCurrentUser} setCurrentUserFaves={setCurrentUserFaves} />} />
+
           render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+
 
         </Switch>
       </div>

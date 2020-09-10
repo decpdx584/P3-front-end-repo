@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import CabinetTop from './CabinetTop';
-import CabinetScreen from './CabinetScreen';
-import CabinetBottom from './CabinetBottom';
 import axios from 'axios';
 import Iframe from 'react-iframe'
 
@@ -14,17 +11,17 @@ const Arcade = (props) => {
     console.log(props.match.params)
     axios.get(`${REACT_APP_SERVER_URL}/api/games/${props.match.params.id}`)
     .then(response => {
-      console.log('RESPOONSE FROM FRONT END', response.data);
-      console.log(props)
       props.setCurrentGame(response.data)
-      })
-      .catch(err => {console.log(err)})
-    }
+      
+    })
+    .catch(err => {console.log(err)})
+  }
   
   useEffect(() => {
     arcadeGame()
   }, [])
-
+  
+  console.log('CURRENT GAME WAS MANIPULATED ', props.currentGame)
   let handleLoading = 
   props.currentGame ? (
     <div className="cabinet">
@@ -42,9 +39,39 @@ const Arcade = (props) => {
     <h3 className="pixel-text">Loading Game</h3>
   )
 
+  const addFavorite = (e) => {    
+    e.preventDefault()
+    console.log('CURRENT GAME IN STATE : ', props.currentGame)
+    // make a call to the database that gets the users info by ID
+    axios.post(`${REACT_APP_SERVER_URL}/api/users/favorites/${props.currentUser.id}`,
+    {parameters: {
+      userId: props.currentUser.id,
+      currentGame: props.currentGame,
+    }})
+    .then(response => {
+      console.log('RESPONSE FROM BACK END : ', response)
+      axios.get(`${REACT_APP_SERVER_URL}/api/users/profile/${props.currentUser.id}`)
+      .then(response => {
+        console.log(response)
+        props.setCurrentUserFaves(response.data.favedGames)
+      })
+      .catch(err => console.log(err))
+    })
+    .catch(err => console.log('SHAME ON YOU'))
+  }
+
   return(
     <div>
       {handleLoading}
+      <form>
+        <button
+        onClick={(e) => addFavorite(e)}
+        className="unclicked-fav"
+        >
+      Add to Favorites
+        </button>
+      </form>
+    {/* ADD DEPLOYED GAME LINK */}
     </div>
   )
 }
