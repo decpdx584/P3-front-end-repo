@@ -6,35 +6,14 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 // onSubmit={handleSubmit}
-const GameForm = (props) => {
-    let [title, setTitle] = useState('');
-    let [gameUrl, setGameUrl] = useState('');
-    let [cohort, setCohort] = useState('');
-    let [description, setDescription] = useState('');
-    let [screenshot, setScreenShot] = useState('');
+const EditProfile = (props) => {
     let [linkedIn, setLinkedIn] = useState('');
     let [github, setGithub] = useState('');
     let [profilePic, setProfilePic] = useState('');
     let [portfolioUrl, setPortfolioUrl] = useState('');
     let [redirect, setRedirect] = useState(false);
 
-    let author = props.user.id;
-    console.log(author)
-    const handleTitle = (e) => {
-        setTitle(e.target.value);
-    }
-    const handleUrl = (e) => {
-        setGameUrl(e.target.value);
-    }
-    const handleCohort = (e) => {
-        setCohort(e.target.value);
-    }
-    const handleDescription = (e) => {
-        setDescription(e.target.value);
-    }
-    const handleScreenShot = (e) => {
-        setScreenShot(e.target.value);
-    }
+    let userId = props.user.id;
     const handleLinkedIn = (e) => {
         setLinkedIn(e.target.value);
     }
@@ -50,16 +29,10 @@ const GameForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newGame = { gameUrl, title, description, cohort, screenshot, linkedIn, github, profilePic, portfolioUrl, author}
-        axios.post(`${REACT_APP_SERVER_URL}/api/games/addgame`, newGame)
+        const newProfile = { userId, linkedIn, github, profilePic, portfolioUrl }
+        axios.put(`${REACT_APP_SERVER_URL}/api/users/editprofile`, newProfile)
             .then(response => {
                 console.log(response);
-                setRedirect(true);
-                setTitle('');
-                setGameUrl('');
-                setDescription('');
-                setCohort('');
-                setScreenShot('');
                 setLinkedIn('');
                 setGithub('');
                 setProfilePic('');
@@ -69,35 +42,12 @@ const GameForm = (props) => {
         }
 
 
-    console.log(props);
+    // console.log(props);
     const userData = props.user ?
     (<div className="row">
 
 
         <form onSubmit={handleSubmit}>
-        <div className="column">
-            <div className="form-group">
-                <label htmlFor="title">Whats the name of your game</label>
-                <input type="title" name="title" value={title} onChange={handleTitle} className="input" required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="gameUrl">Submit your game URL Below</label>
-                <input type="gameUrl" name="gameUrl" value={gameUrl} onChange={handleUrl} className="input" required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="cohort">Whats your Cohort?(Optional)</label>
-                <input type="cohort" name="cohort" value={cohort} onChange={handleCohort} className="input" />
-            </div>
-            <div className="form-group">
-                <label htmlFor="description">Tell us something about your game (optional)</label>
-                <input type="description" name="description" value={description} onChange={handleDescription} className="input" />
-            </div>
-            <div className="form-group">
-                <label htmlFor="screenshot">Link a Screen Shot of your game (optional)</label>
-                <input type="screenshot" name="screenshot" value={screenshot} onChange={handleScreenShot} className="input" />
-            </div>
-        </div>
-
        <div className="column">
             <div className="form-group author">
                 <label htmlFor="linkedIn">Add your LinkedIn URL (optional)</label>
@@ -137,4 +87,4 @@ const GameForm = (props) => {
 
 }
 
-export default GameForm;
+export default EditProfile;

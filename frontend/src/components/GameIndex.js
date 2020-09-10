@@ -13,7 +13,22 @@ const GameIndex = (props) => {
     props.setCurrentGame(g)
     console.log('HERE BE THE PROPS', props)
   }
+<<<<<<< HEAD
   
+=======
+
+  // const getGames = () => {
+  //   axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
+  //   .then(response => {
+  //     console.log('RESPONSE HERE => ', response);
+  //     setGamesDisplayed(response);
+  //   })
+  //   .catch(err => console.log('error getting server data \n', err))
+  // }
+
+  // let gamesDisplayed = props.gamesDisplayed;
+
+>>>>>>> 9ca6613082571f5919bb69d0696c6c5928793394
   let mapThemGames = () => {
     return props.currentGame.map((g, idx) => {
       // console.log('THiS A G', g)
@@ -24,13 +39,14 @@ const GameIndex = (props) => {
         <h3 className="sub-title">{g.name ? g.name : g.title}</h3>
         </Link>
         <p>{g.gameUrl}</p>
-        <p>{g.description != 'none' ? g.description : 'no description uploaded'}</p>
+        <p>{g.description !== 'none' ? g.description : 'no description uploaded'}</p>
         </div>
       )
     })
-  } 
+  }
 
-  let decideGames = 
+
+  let decideGames =
     props.currentGame.length > 0 ? (
       <div>
         <h1 className="pixel-text">Them Games</h1>
@@ -39,7 +55,7 @@ const GameIndex = (props) => {
     ) : (
       <h3 className="pixel-text">Loading the Arcade 💨</h3>
     )
-  
+
   useEffect(() => {
     axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
     .then(response => {
@@ -52,10 +68,10 @@ const GameIndex = (props) => {
 
   // we need to wait for state to set and, once it does
   // we need to display the state's game information
-  // will this be promise based? probably? 
+  // will this be promise based? probably?
 
   return (
-    
+
     <div>
       {decideGames}
     </div>

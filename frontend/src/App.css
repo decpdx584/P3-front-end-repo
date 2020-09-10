@@ -110,9 +110,36 @@ form{
   /* border: 2px solid blue; */
 }
 
+
 .cabinet{
   text-align: center;
 }
 #game-title{
   padding: 15px 0 30px;
+
+.links{
+  color: #defe47;
+  font-family: 'Press Start 2P', cursive;
 }
+.formLabel{
+  color: #e9a7fa;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  margin-left: 7%;
+
+}
+.about{
+  width: 800px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 15%;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  color:#defe47;
+  text-shadow:2px 2px  blue;
+
+}
+.devs{
+  color:#defe47;
+
