@@ -12,14 +12,16 @@ const Arcade = (props) => {
     axios.get(`${REACT_APP_SERVER_URL}/api/games/${props.match.params.id}`)
     .then(response => {
       props.setCurrentGame(response.data)
-      })
-      .catch(err => {console.log(err)})
-    }
+      
+    })
+    .catch(err => {console.log(err)})
+  }
   
   useEffect(() => {
     arcadeGame()
   }, [])
-
+  
+  console.log('CURRENT GAME WAS MANIPULATED ', props.currentGame)
   let handleLoading = 
   props.currentGame ? (
     <div className="cabinet">
