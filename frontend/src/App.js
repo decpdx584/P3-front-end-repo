@@ -17,6 +17,7 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+import EditProfile from './components/EditProfile'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -87,7 +88,9 @@ function App() {
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
-          {/* The route below automatically renders landing when we load / */}
+          <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
+          {/* The route below automatically renders landing when we load / */
+
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 
 
