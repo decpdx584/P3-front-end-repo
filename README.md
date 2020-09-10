@@ -4,7 +4,7 @@ Who doesn't love to play games? And who doesn't love to support their fellow cla
 
 ------------------------------------------------------------------------------------------------------------
 
-Please note: This is a decoupled app. For the full experience, it can be used in conjunction with the server-side repo *here*.
+Please note: This is a decoupled app. For the full experience, it can be used in conjunction with the server-side repo [here.](https://github.com/Lizzwest/P3-back-end-repo)
 
 ## Instructions to install
 
