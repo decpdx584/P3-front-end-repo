@@ -6,7 +6,6 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 const GameIndex = (props) => {
-  // let [gamesDisplayed, setGamesDisplayed] = useState([]);
 
   const handlePlayGame = (g) => {
     // send id to url parameter space
@@ -14,8 +13,6 @@ const GameIndex = (props) => {
     props.setCurrentGame(g)
     console.log('HERE BE THE PROPS', props)
   }
-
-  // let gamesDisplayed = props.gamesDisplayed;
   
   let mapThemGames = () => {
     return props.currentGame.map((g, idx) => {

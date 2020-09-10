@@ -1,11 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
-// import GameForm from "./GameForm"
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-
-// onSubmit={handleSubmit}
 const Profile = (props) => {
     console.log('PROFILE PROPZ : ', props)
     const mapThemFaves =

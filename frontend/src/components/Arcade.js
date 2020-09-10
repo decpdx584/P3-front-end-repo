@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import CabinetBottom from './CabinetBottom';
 import axios from 'axios';
 import Iframe from 'react-iframe'
 
@@ -12,8 +11,6 @@ const Arcade = (props) => {
     console.log(props.match.params)
     axios.get(`${REACT_APP_SERVER_URL}/api/games/${props.match.params.id}`)
     .then(response => {
-      // console.log('RESPOONSE FROM FRONT END', response.data);
-      // console.log(props)
       props.setCurrentGame(response.data)
       })
       .catch(err => {console.log(err)})
@@ -21,7 +18,6 @@ const Arcade = (props) => {
   
   useEffect(() => {
     arcadeGame()
-    console.log(props.currentUser)
   }, [])
 
   let handleLoading = 
@@ -48,9 +44,7 @@ const Arcade = (props) => {
     axios.post(`${REACT_APP_SERVER_URL}/api/users/favorites/${props.currentUser.id}`,
     {parameters: {
       userId: props.currentUser.id,
-      gameId: props.currentGame.id,
       currentGame: props.currentGame,
-      gameName: props.currentGame.name
     }})
     .then(response => {
       console.log('RESPONSE FROM BACK END : ', response)
@@ -59,6 +53,7 @@ const Arcade = (props) => {
         console.log(response)
         props.setCurrentUserFaves(response.data.favedGames)
       })
+      .catch(err => console.log(err))
     })
     .catch(err => console.log('SHAME ON YOU'))
   }
