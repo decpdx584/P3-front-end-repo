@@ -17,9 +17,13 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+
 import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
  
+
+import EditProfile from './components/EditProfile'
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -80,7 +84,7 @@ function App() {
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
         <Switch>
-          <Route path="/signup" component={ Signup } />
+          <Route path="/signup" component={ Signup} />
           <Route
             path="/login"
             render={ (props) => <Login {...props} 
@@ -91,7 +95,9 @@ function App() {
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} currentUserFaves={currentUserFaves}/>
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
+          <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
           {/* The route below automatically renders landing when we load / */}
+
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 
 
@@ -107,9 +113,14 @@ function App() {
           {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
+
           render={(props) => <Arcade {...props} currentGame={currentGame} 
           setCurrentGame={setCurrentGame} currentUser={currentUser} 
           setCurrentUser={setCurrentUser} setCurrentUserFaves={setCurrentUserFaves} />} />
+
+          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+
+
         </Switch>
       </div>
       <Footer />
