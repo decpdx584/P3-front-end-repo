@@ -63,7 +63,7 @@ function App() {
   //  const handlePlayGame = (id) => {
   //   // send id to url parameter space
   //   // use that id to render the specific game we want to pla
-    
+
   //   setCurrentGame(id)
   //   console.log(currentGame)
   //   // <props.privateRoute path="/games/active" component={Game} />
@@ -88,18 +88,19 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           {/* The route below automatically renders landing when we load / */}
-          <Route exact path="/" 
-          render={(props) => <Landing {...props}/>}/> 
-          <Route path="/arcade" 
-          render={(props) => <Arcade {...props}/>}/> 
-          <Route path="/user/favorites" 
-          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-          <Route path="*" component={Error} />
+          <Route exact path="/"
+          render={(props) => <Landing {...props}/>}/>
+          <Route path="/arcade"
+          render={(props) => <Arcade {...props}/>}/>
+          <Route path="/user/favorites"
+          render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
+
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
           <Route path={`/games/${currentGame._id}`}
           render={(props) => <Arcade {...props} />} />
+          <Route path="*" component={Error} />
         </Switch>
       </div>
       <Footer />

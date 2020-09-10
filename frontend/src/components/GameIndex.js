@@ -42,13 +42,9 @@ const GameIndex = (props) => {
     })
   }
 
-<<<<<<< HEAD
-  let decideGames =
-    gamesDisplayed.length > 0 ? (
-=======
+
   let decideGames =
     props.currentGame.length > 0 ? (
->>>>>>> 8e909911d70da620ada88c176dcf0deacee48861
       <div>
         <h1 className="pixel-text">Them Games</h1>
         {mapThemGames()}
