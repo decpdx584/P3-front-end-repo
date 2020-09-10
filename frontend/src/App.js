@@ -72,19 +72,6 @@ function App() {
     }
   }
 
-<<<<<<< HEAD
-=======
-  //  const handlePlayGame = (id) => {
-  //   // send id to url parameter space
-  //   // use that id to render the specific game we want to pla
-
-  //   setCurrentGame(id)
-  //   console.log(currentGame)
-  //   // <props.privateRoute path="/games/active" component={Game} />
-  //   return <Redirect to='game' />
-  // }
-
->>>>>>> 9ca6613082571f5919bb69d0696c6c5928793394
   console.log('Current User', currentUser);
   console.log('Authenicated', isAuthenticated);
 
@@ -120,15 +107,9 @@ function App() {
           {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
-<<<<<<< HEAD
           render={(props) => <Arcade {...props} currentGame={currentGame} 
           setCurrentGame={setCurrentGame} currentUser={currentUser} 
           setCurrentUser={setCurrentUser} setCurrentUserFaves={setCurrentUserFaves} />} />
-=======
-          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
-
-
->>>>>>> 9ca6613082571f5919bb69d0696c6c5928793394
         </Switch>
       </div>
       <Footer />
