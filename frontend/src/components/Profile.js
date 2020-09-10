@@ -1,16 +1,22 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import GameForm from "./GameForm"
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
-
 // onSubmit={handleSubmit}
 const Profile = (props) => {
-    console.log(props);
-    // This will live within CabinetTop Component
-    // will need to pass this const as a prop
+    console.log('PROFILE PROPZ : ', props)
+    
+    const mapThemFaves =
+        props.user.favedGames ? props.user.favedGames.map((f, idx) => {
+            return <li key={idx}>{f}</li> 
+        })
+        : <li>Loading</li>
+
+
+    // console.log(props);
     const userData = props.user ? 
     (<div>
         <h1 className="pixel-text">{props.user.name}'s Profile</h1><br />
@@ -21,7 +27,10 @@ const Profile = (props) => {
             <h5 className="sub-title">Email:</h5> 
             <p className="yellow-text">{props.user.email}</p> 
             <h5 className="sub-title">Favorites</h5> 
-            <p className="yellow-text">favorites go here or link?</p> 
+            <ul className="yellow-text">
+            {mapThemFaves ? mapThemFaves : 'Loading'}
+            
+            </ul>
             <h5 className="sub-title">Uploaded Games</h5> 
             <p className="yellow-text">uploaded games go here or link?</p> 
         </div>
