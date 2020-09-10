@@ -94,12 +94,12 @@ function App() {
           render={(props) => <Arcade {...props}/>}/> 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
-          <Route path="*" component={Error} />
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
           <Route path={`/games/${currentGame._id}`}
           render={(props) => <Arcade {...props} />} />
+          {/* <Route path="*" component={Error} /> */}
         </Switch>
       </div>
       <Footer />
