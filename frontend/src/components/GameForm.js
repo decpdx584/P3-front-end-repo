@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -43,6 +43,8 @@ const GameForm = (props) => {
                 setGameUrl('');
                 setDescription('');
                 setCohort('');
+                setScreenShot('')
+                props.history.push('/profile')
             })
             props.setErrorFlash('Make sure to include at lears URL and Title')
             .catch(error => console.log(error));
