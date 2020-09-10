@@ -46,14 +46,19 @@ const Arcade = (props) => {
     console.log('CURRENT GAME IN STATE : ', props.currentGame)
     // make a call to the database that gets the users info by ID
     axios.post(`${REACT_APP_SERVER_URL}/api/users/favorites/${props.currentUser.id}`,
-    {params: {
+    {parameters: {
       userId: props.currentUser.id,
-      gameId: props.currentGame._id,
+      gameId: props.currentGame.id,
       currentGame: props.currentGame,
       gameName: props.currentGame.name
     }})
     .then(response => {
-      return response
+      console.log('RESPONSE FROM BACK END : ', response)
+      axios.get(`${REACT_APP_SERVER_URL}/api/users/profile/${props.currentUser.id}`)
+      .then(response => {
+        console.log(response)
+        props.setCurrentUserFaves(response.data.favedGames)
+      })
     })
     .catch(err => console.log('SHAME ON YOU'))
   }

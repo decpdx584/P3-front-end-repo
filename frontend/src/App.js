@@ -17,6 +17,9 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+import axios from 'axios';
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+ 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -42,8 +45,15 @@ function App() {
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
       setAuthToken(localStorage.jwtToken);
+      console.log('HERE IS THE TOKEN', token)
       setCurrentUser(token);
       setIsAuthenticated(true);
+      axios.get(`${REACT_APP_SERVER_URL}/api/users/profile/${currentUser.id}`)
+      .then(response => {
+        setCurrentUserFaves(response.data.favedGames)
+        console.log('FRONT END USE EFFECT RESPONSE ', response)
+     })
+     .catch(err => console.log('FRONT END DOT CATCH : ', err))
     }
   }, []);
 
@@ -74,11 +84,11 @@ function App() {
             path="/login"
             render={ (props) => <Login {...props} 
             nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} 
-            user={currentUser} currentUserFaves={currentUserFaves}/>}
+            user={currentUser} currentUserFaves={currentUserFaves} setCurrentUserFaves={setCurrentUserFaves}/>}
           />
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
-          <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          <PrivateRoute path="/profile" component={ Profile } user={currentUser} currentUserFaves={currentUserFaves}/>
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
           {/* The route below automatically renders landing when we load / */}
           <Route exact path="/" 
@@ -96,7 +106,8 @@ function App() {
 
           <Route path="/games/:id"
           render={(props) => <Arcade {...props} currentGame={currentGame} 
-          setCurrentGame={setCurrentGame} currentUser={currentUser}/>} />
+          setCurrentGame={setCurrentGame} currentUser={currentUser} 
+          setCurrentUser={setCurrentUser} setCurrentUserFaves={setCurrentUserFaves} />} />
         </Switch>
       </div>
       <Footer />
