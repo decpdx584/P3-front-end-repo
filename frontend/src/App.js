@@ -63,7 +63,7 @@ function App() {
   //  const handlePlayGame = (id) => {
   //   // send id to url parameter space
   //   // use that id to render the specific game we want to pla
-    
+
   //   setCurrentGame(id)
   //   console.log(currentGame)
   //   // <props.privateRoute path="/games/active" component={Game} />
@@ -97,12 +97,15 @@ function App() {
 
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
           {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
           render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+
+
         </Switch>
       </div>
       <Footer />
