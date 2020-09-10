@@ -22,7 +22,7 @@ const GameIndex = (props) => {
       // console.log('THiS A G', g)
       return (
         <div key={idx}
-        onClick={() => handlePlayGame(g)}>
+        >
         <Link to={`/games/${g._id}`}>
         <h3 className="sub-title">{g.name ? g.name : g.title}</h3>
         </Link>
@@ -46,7 +46,7 @@ const GameIndex = (props) => {
   useEffect(() => {
     axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
     .then(response => {
-      console.log('RESPONSE HERE => ', response);
+      // console.log('RESPONSE HERE => ', response);
       props.setCurrentGame(response.data);
     })
     .catch(err => console.log('error getting server data \n', err))

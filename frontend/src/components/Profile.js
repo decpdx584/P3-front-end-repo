@@ -11,7 +11,7 @@ const Profile = (props) => {
     
     const mapThemFaves =
         props.user.favedGames ? props.user.favedGames.map((f, idx) => {
-            return <><Link to={`/games/${f}`} key={idx}>{f}</Link><br /> </>
+            return <><Link to={`/games/${f}`} key={idx}>Game {f}</Link><br /> </>
         })
         : <li>Loading</li>
 

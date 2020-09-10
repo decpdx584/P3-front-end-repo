@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import CabinetTop from './CabinetTop';
-import CabinetScreen from './CabinetScreen';
 import CabinetBottom from './CabinetBottom';
 import axios from 'axios';
 import Iframe from 'react-iframe'
@@ -14,8 +12,8 @@ const Arcade = (props) => {
     console.log(props.match.params)
     axios.get(`${REACT_APP_SERVER_URL}/api/games/${props.match.params.id}`)
     .then(response => {
-      console.log('RESPOONSE FROM FRONT END', response.data);
-      console.log(props)
+      // console.log('RESPOONSE FROM FRONT END', response.data);
+      // console.log(props)
       props.setCurrentGame(response.data)
       })
       .catch(err => {console.log(err)})
@@ -23,6 +21,7 @@ const Arcade = (props) => {
   
   useEffect(() => {
     arcadeGame()
+    console.log(props.currentUser)
   }, [])
 
   let handleLoading = 
@@ -42,9 +41,35 @@ const Arcade = (props) => {
     <h3 className="pixel-text">Loading Game</h3>
   )
 
+  const addFavorite = (e) => {    
+    e.preventDefault()
+    console.log('CURRENT GAME IN STATE : ', props.currentGame)
+    // make a call to the database that gets the users info by ID
+    axios.post(`${REACT_APP_SERVER_URL}/api/users/favorites/${props.currentUser.id}`,
+    {params: {
+      userId: props.currentUser.id,
+      gameId: props.currentGame._id,
+      currentGame: props.currentGame,
+      gameName: props.currentGame.name
+    }})
+    .then(response => {
+      return response
+    })
+    .catch(err => console.log('SHAME ON YOU'))
+  }
+
   return(
     <div>
       {handleLoading}
+      <form>
+        <button
+        onClick={(e) => addFavorite(e)}
+        className="unclicked-fav"
+        >
+      Add to Favorites
+        </button>
+      </form>
+    {/* ADD DEPLOYED GAME LINK */}
     </div>
   )
 }

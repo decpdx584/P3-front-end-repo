@@ -32,6 +32,7 @@ function App() {
   let [isAuthenticated, setIsAuthenticated] = useState(true);
   let [gamesDisplayed, setGamesDisplayed] = useState([]);
   let [currentGame, setCurrentGame] = useState({});
+  let [currentUserFaves, setCurrentUserFaves] = useState([]);
 
 
   useEffect(() => {
@@ -60,16 +61,6 @@ function App() {
     }
   }
 
-  //  const handlePlayGame = (id) => {
-  //   // send id to url parameter space
-  //   // use that id to render the specific game we want to pla
-    
-  //   setCurrentGame(id)
-  //   console.log(currentGame)
-  //   // <props.privateRoute path="/games/active" component={Game} />
-  //   return <Redirect to='game' />
-  // }
-
   console.log('Current User', currentUser);
   console.log('Authenicated', isAuthenticated);
 
@@ -81,7 +72,9 @@ function App() {
           <Route path="/signup" component={ Signup } />
           <Route
             path="/login"
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
+            render={ (props) => <Login {...props} 
+            nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} 
+            user={currentUser} currentUserFaves={currentUserFaves}/>}
           />
           <Route path="/about" component={ About } />
           <Route path="/game" component={ Game } />
@@ -102,7 +95,8 @@ function App() {
           {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
-          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+          render={(props) => <Arcade {...props} currentGame={currentGame} 
+          setCurrentGame={setCurrentGame} currentUser={currentUser}/>} />
         </Switch>
       </div>
       <Footer />
