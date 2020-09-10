@@ -97,8 +97,8 @@ function App() {
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
-          <Route path={`/games/${currentGame._id}`}
-          render={(props) => <Arcade {...props} />} />
+          <Route path="/games/:id"
+          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
           {/* <Route path="*" component={Error} /> */}
         </Switch>
       </div>
