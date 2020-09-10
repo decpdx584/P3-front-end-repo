@@ -51,11 +51,12 @@ function App() {
       axios.get(`${REACT_APP_SERVER_URL}/api/users/profile/${currentUser.id}`)
       .then(response => {
         setCurrentUserFaves(response.data.favedGames)
+        // console.log('LINE 54 : ', currentUserFaves)
         console.log('FRONT END USE EFFECT RESPONSE ', response)
      })
      .catch(err => console.log('FRONT END DOT CATCH : ', err))
     }
-  }, []);
+  }, [currentUser ? currentUser.id : '']);
 
   const nowCurrentUser = (userData) => {
     console.log('nowCurrentUser is working...');
