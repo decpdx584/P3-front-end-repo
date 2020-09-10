@@ -17,6 +17,9 @@ const GameForm = (props) => {
     let [profilePic, setProfilePic] = useState('');
     let [portfolioUrl, setPortfolioUrl] = useState('');
     let [redirect, setRedirect] = useState(false);
+
+    let author = props.user.id;
+    console.log(author)
     const handleTitle = (e) => {
         setTitle(e.target.value);
     }
@@ -47,7 +50,7 @@ const GameForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newGame = { gameUrl, title, description, cohort, screenshot, linkedIn, github, profilePic, portfolioUrl }
+        const newGame = { gameUrl, title, description, cohort, screenshot, linkedIn, github, profilePic, portfolioUrl, author}
         axios.post(`${REACT_APP_SERVER_URL}/api/games/addgame`, newGame)
             .then(response => {
                 console.log(response);
@@ -69,8 +72,8 @@ const GameForm = (props) => {
     console.log(props);
     const userData = props.user ?
     (<div className="row">
-     
-       
+
+
         <form onSubmit={handleSubmit}>
         <div className="column">
             <div className="form-group">
@@ -94,7 +97,7 @@ const GameForm = (props) => {
                 <input type="screenshot" name="screenshot" value={screenshot} onChange={handleScreenShot} className="input" />
             </div>
         </div>
-        
+
        <div className="column">
             <div className="form-group author">
                 <label htmlFor="linkedIn">Add your LinkedIn URL (optional)</label>
@@ -135,4 +138,3 @@ const GameForm = (props) => {
 }
 
 export default GameForm;
-

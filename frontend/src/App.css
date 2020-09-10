@@ -17,6 +17,10 @@ body {
   width: 100%;
   height: 60px; /* Set the fixed height of the footer here */
   line-height: 60px; /* Vertically center the text there */
+  background: #e0fe47e8;
+  font-family: 'Russo One', sans-serif;
+  color: #7700a6
+
 }
 .game {
   background-color: black;
@@ -108,4 +112,52 @@ form{
   font-family: 'Press Start 2P', cursive;
 
   /* border: 2px solid blue; */
+}
+
+
+.cabinet{
+  text-align: center;
+}
+#game-title{
+  padding: 15px 0 30px;
+}
+.links{
+  color: #defe47;
+  font-family: 'Press Start 2P', cursive;
+}
+.formLabel{
+  color: #e9a7fa;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  margin-left: 7%;
+
+}
+.head{
+  width: 60vw;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 15%;
+  font-size: 1rem;
+  font-family: 'Press Start 2P', cursive;
+  color:#defe47;
+  /* text-shadow:2px 2px  blue; */
+
+}
+.about{
+  font-family: 'Russo One', sans-serif;
+  color: #e9a7fa;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 80vw;
+  /* text-shadow:2px 2px; */
+
+}
+.devs{
+  color:#defe47;
+
+}
+ #navLink{
+  font-family: 'Russo One', sans-serif;
+
 }

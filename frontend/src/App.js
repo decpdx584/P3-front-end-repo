@@ -17,6 +17,7 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
+import EditProfile from './components/EditProfile'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const user = localStorage.getItem('jwtToken');
@@ -30,8 +31,8 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
-  let [gamesDisplayed, setGamesDisplayed] = useState([])
-  let [currentGame, setCurrentGame] = useState({})
+  let [gamesDisplayed, setGamesDisplayed] = useState([]);
+  let [currentGame, setCurrentGame] = useState({});
 
 
   useEffect(() => {
@@ -63,7 +64,7 @@ function App() {
   //  const handlePlayGame = (id) => {
   //   // send id to url parameter space
   //   // use that id to render the specific game we want to pla
-    
+
   //   setCurrentGame(id)
   //   console.log(currentGame)
   //   // <props.privateRoute path="/games/active" component={Game} />
@@ -78,7 +79,7 @@ function App() {
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
         <Switch>
-          <Route path="/signup" component={ Signup } />
+          <Route path="/signup" component={ Signup} />
           <Route
             path="/login"
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
@@ -87,19 +88,26 @@ function App() {
           <Route path="/game" component={ Game } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} />
-          {/* The route below automatically renders landing when we load / */}
+          <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } />
+          {/* The route below automatically renders landing when we load / */
+
           <Route exact path="/" 
           render={(props) => <Landing {...props}/>}/> 
+
           <Route path="/arcade" 
-          render={(props) => <Arcade {...props}/>}/> 
+          render={(props) => <Arcade {...props} 
+          currentGame={currentGame} setCurrentGame={setCurrentGame}/>}/> 
+
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
+
           <Route path="/games/index"
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+          {/* <Route path="*" component={Error} /> */}
 
           <Route path="/games/:id"
           render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
-          {/* <Route path="*" component={Error} /> */}
+
         </Switch>
       </div>
       <Footer />
