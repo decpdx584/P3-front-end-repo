@@ -108,7 +108,6 @@ function App() {
           <Route path="/games/:id"
           render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
-
         </Switch>
       </div>
       <Footer />
