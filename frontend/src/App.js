@@ -78,7 +78,7 @@ function App() {
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
       <div className="container mt-5">
         <Switch>
-          <Route path="/signup" component={ Signup } />
+          <Route path="/signup" component={ Signup} />
           <Route
             path="/login"
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
@@ -95,17 +95,10 @@ function App() {
           <Route path="/user/favorites" 
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/> 
           <Route path="/games/index"
-<<<<<<< HEAD
-          render={(props) => <GameIndex {...props} />} />
-          {/* <Route path="/addgame"
-          render={(props) => <GameForm {...props} />} /> */}
-            {/* <Route path="*" component={Error} /> */}
-=======
           render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
           <Route path={`/games/${currentGame._id}`}
           render={(props) => <Arcade {...props} />} />
->>>>>>> 7049a62837b8ae5bbc8fc69bb6ee018f37760098
         </Switch>
       </div>
       <Footer />
