@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -31,11 +31,10 @@ const GameForm = (props) => {
     const handleScreenShot = (e) => {
         setScreenShot(e.target.value);
     }
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newGame = { gameUrl, title, description, cohort, screenshot}
+        const newGame = { gameUrl, title, description, cohort, screenshot }
         axios.post(`${REACT_APP_SERVER_URL}/api/games/addgame`, newGame)
             .then(response => {
                 console.log(response);
@@ -44,9 +43,10 @@ const GameForm = (props) => {
                 setGameUrl('');
                 setDescription('');
                 setCohort('');
-                setScreenShot('');
-               
+                setScreenShot('')
+                props.history.push('/profile')
             })
+            props.setErrorFlash('Make sure to include at lears URL and Title')
             .catch(error => console.log(error));
         }
 
@@ -78,9 +78,12 @@ const GameForm = (props) => {
                 <label htmlFor="screenshot">Link a Screen Shot of your game (optional)</label>
                 <input type="screenshot" name="screenshot" value={screenshot} onChange={handleScreenShot} className="input" />
             </div>
-        </div>
             <button type="submit" className="button">Submit</button>
-           
+            <div>{props.errorFlash}</div>
+        </div>
+
+
+
         </form>
     </div>) : <h4>Loading...</h4>
 
