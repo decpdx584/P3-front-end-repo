@@ -31,9 +31,14 @@ function App() {
   // set state values
   let [currentUser, setCurrentUser] = useState("");
   let [isAuthenticated, setIsAuthenticated] = useState(true);
+<<<<<<< HEAD
   let [gamesDisplayed, setGamesDisplayed] = useState([])
   let [currentGame, setCurrentGame] = useState({})
   let [errorFlash, setErrorFlash] = useState("")
+=======
+  let [gamesDisplayed, setGamesDisplayed] = useState([]);
+  let [currentGame, setCurrentGame] = useState({});
+>>>>>>> a21d5c642df6817defe4fa586e33ae47a7a7d503
 
 
   useEffect(() => {
@@ -95,18 +100,21 @@ function App() {
 
           <Route exact path="/"
           render={(props) => <Landing {...props}/>}/>
+
           <Route path="/arcade"
-          render={(props) => <Arcade {...props}/>}/>
+          render={(props) => <Arcade {...props}
+          currentGame={currentGame} setCurrentGame={setCurrentGame}/>}/>
+
           <Route path="/user/favorites"
           render={(props) => <UserFavorites {...props} currentUser={currentUser}/>}/>
 
           <Route path="/games/index"
-          render={(props) => <GameIndex {...props} currentUser={currentUser}/>} />
+          render={(props) => <GameIndex {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+          {/* <Route path="*" component={Error} /> */}
 
-          <Route path={`/games/${currentGame._id}`}
-          render={(props) => <Arcade {...props} />} />
+          <Route path="/games/:id"
+          render={(props) => <Arcade {...props} currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
 
-          <Route path="*" component={Error} />
 
         </Switch>
       </div>
