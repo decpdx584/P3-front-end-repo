@@ -17,12 +17,12 @@ import Landing from './components/Landing';
 import UserFavorites from './components/UserFavorites';
 import GameIndex from './components/GameIndex'
 import Arcade from './components/Arcade';
-
+import EditProfile from './components/EditProfile'
 import axios from 'axios';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
  
 
-import EditProfile from './components/EditProfile'
+
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {

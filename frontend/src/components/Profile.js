@@ -10,15 +10,6 @@ const Profile = (props) => {
         : <li>Loading</li>
 
 
-
-    // console.log(props);
-    const userData = props.user ? 
-
-// onSubmit={handleSubmit}
-const Profile = (props) => {
-    console.log(props);
-    // This will live within CabinetTop Component
-    // will need to pass this const as a prop
     const userData = props.user ?
 
     (<div>
