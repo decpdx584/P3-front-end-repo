@@ -94,14 +94,14 @@ function App() {
             user={currentUser} errorFlash={errorFlash} setErrorFlash={setErrorFlash} />}
           />
           <Route path="/about" component={ About } />
+
           <Route path="/game" component={ Game } errorFlash={errorFlash} setErrorFlash={setErrorFlash} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} errorFlash={errorFlash} setErrorFlash={setErrorFlash} />
           <PrivateRoute path="/addgame" component={ GameForm } user={currentUser} errorFlash={errorFlash} setErrorFlash={setErrorFlash} />
           <PrivateRoute path="/editprofile" component= { EditProfile } user={ currentUser } errorFlash={errorFlash} setErrorFlash={setErrorFlash}/>
 
             
-     
-
+    
           {/* The route below automatically renders landing when we load / */}
 
           <Route exact path="/"
