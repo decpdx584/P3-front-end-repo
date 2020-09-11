@@ -3,6 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = (props) => {
     return (
+        // AUDIT NAVBAR LINKS
         <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#490066"}}>
             <div className="container">
                 <Link className="navbar-brand sub-title" to="/">GArcade</Link>

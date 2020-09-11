@@ -6,7 +6,6 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 const GameIndex = (props) => {
-  // let [gamesDisplayed, setGamesDisplayed] = useState([]);
 
   const handlePlayGame = (g) => {
     // send id to url parameter space
@@ -14,24 +13,13 @@ const GameIndex = (props) => {
     props.setCurrentGame(g)
     console.log('HERE BE THE PROPS', props)
   }
-
-  // const getGames = () => {
-  //   axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
-  //   .then(response => {
-  //     console.log('RESPONSE HERE => ', response);
-  //     setGamesDisplayed(response);
-  //   })
-  //   .catch(err => console.log('error getting server data \n', err))
-  // }
-
-  // let gamesDisplayed = props.gamesDisplayed;
-
+  
   let mapThemGames = () => {
     return props.currentGame.map((g, idx) => {
       // console.log('THiS A G', g)
       return (
         <div key={idx}
-        onClick={() => handlePlayGame(g)}>
+        >
         <Link to={`/games/${g._id}`}>
         <h3 className="sub-title">{g.name ? g.name : g.title}</h3>
         </Link>
@@ -56,7 +44,7 @@ const GameIndex = (props) => {
   useEffect(() => {
     axios.get(`${REACT_APP_SERVER_URL}/api/games/arcade`)
     .then(response => {
-      console.log('RESPONSE HERE => ', response);
+      // console.log('RESPONSE HERE => ', response);
       props.setCurrentGame(response.data);
     })
     .catch(err => console.log('error getting server data \n', err))
